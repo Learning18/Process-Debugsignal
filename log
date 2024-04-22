@@ -1,0 +1,165 @@
+core1_time1.txt
+linecoune33554433
+core0 startline: 0 endline: 5592405
+core1 startline: 5592405 endline: 11184810
+core2 startline: 11184810 endline: 16777215
+0
+core3 startline: 16777215 endline: 22369620
+core4 startline: 22369620 endline: 27962025
+core5 startline: 27962025 endline: 33554433
+0:  0 line  not match!
+3C found not in map
+44 found not in map
+40 found not in map
+1
+2C found not in map
+74 found not in map
+2
+54 found not in map
+28 found not in map
+3
+7C found not in map
+4
+5
+48 found not in map
+4C found not in map
+68 found not in map
+38 found not in map
+aaa
+whole_count23
+whole_count29
+whole_count30
+whole_count30605324
+whole_count32790252
+whole_count33554364
+whole_count33554380
+whole_count33554381
+whole_count33554408
+whole_count33554410
+whole_count33554427
+whole_count33554432
+28:    23	    0.00%
+2C:     6	    0.00%
+38:     1	    0.00%
+3C: 30605294	   91.21%
+40: 2184928	    6.51%
+44: 764112	    2.28%
+48:    16	    0.00%
+4C:     1	    0.00%
+54:    27	    0.00%
+68:     2	    0.00%
+74:    17	    0.00%
+7C:     5	    0.00%
+
+
+/media/robbins/软件/core1_time2.txt
+linecoune26559882
+core0 startline: 0 endline: 4426647
+core1 startline: 4426647 endline: 8853294
+core2 startline: 8853294 endline: 13279941
+core3 startline: 13279941 endline: 17706588
+core4 startline: 17706588 endline: 22133235
+core5 startline: 22133235 endline: 26559882
+0
+0:  0 line  not match!
+44 found not in map
+40 found not in map
+3C found not in map
+74 found not in map
+54 found not in map
+48 found not in map
+7C found not in map
+28 found not in map
+68 found not in map
+2C found not in map
+6C found not in map
+1
+4C found not in map
+3
+2
+4
+5
+aaa
+whole_count16
+whole_count28
+whole_count21907422
+whole_count25023356
+whole_count26559790
+whole_count26559795
+whole_count26559801
+whole_count26559827
+whole_count26559831
+whole_count26559836
+whole_count26559868
+whole_count26559881
+28:    16	    0.00%
+2C:    12	    0.00%
+3C: 21907394	   82.48%
+40: 3115934	   11.73%
+44: 1536434	    5.78%
+48:     5	    0.00%
+4C:     6	    0.00%
+54:    26	    0.00%
+68:     4	    0.00%
+6C:     5	    0.00%
+74:    32	    0.00%
+7C:    13	    0.00%
+
+
+g++ ana_mc.cpp -o ana_mc -pthread && ./ana_mc core0_time1.txt 
+core0_time1.txt
+linecoune28454318
+core0 startline: 0 endline: 4742386
+core1 startline: 4742386 endline: 9484772
+core2 startline: 9484772 endline: 14227158
+core3 startline: 14227158 endline: 18969544
+0core
+4 startline: 18969544 endline: 23711930
+core5 startline: 23711930 endline: 28454318
+0:  0 line  not match!
+40 found not in map
+44 found not in map
+3C found not in map
+5C found not in map
+34 found not in map
+48 found not in map
+60 found not in map
+24 found not in map
+20 found not in map
+1C found not in map
+58 found not in map
+4C found not in map
+64 found not in map
+1
+2
+3
+4
+5
+aaa
+whole_count30
+whole_count39
+whole_count71
+whole_count109
+whole_count21040206
+whole_count25196339
+whole_count28454092
+whole_count28454105
+whole_count28454125
+whole_count28454129
+whole_count28454227
+whole_count28454258
+whole_count28454317
+1C:    30	  0.000105%
+20:     9	  0.000032%
+24:    32	  0.000112%
+34:    38	  0.000134%
+3C: 21040097	 73.943427%
+40: 4156133	 14.606335%
+44: 3257753	 11.449064%
+48:    13	  0.000046%
+4C:    20	  0.000070%
+58:     4	  0.000014%
+5C:    98	  0.000344%
+60:    31	  0.000109%
+64:    59	  0.000207%
+
