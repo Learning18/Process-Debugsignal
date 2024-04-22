@@ -33,23 +33,45 @@ void add_map(std::string element){
 
 void processFileBlock(const std::string& filename,int startLine,int endLine,int threadID,std::mutex& mtx)
 {
-	mtx.lock();
+//	mtx.lock();
 
 	std::ifstream file(filename);
-	std::cout<<threadID<<std::endl;
+//	std::cout<<threadID<<std::endl;
 	if(!file.is_open())
 	{
 		std::cerr<<"Error opening file:"<<filename<<std::endl;
 		return;
 	}
 	//block start position
-	
+	file.seekg(startLine);
 	std::string line;
 	std::smatch match;
 	std::regex pattern("([01]{1})(\\s+)([01]{1})(\\s+)([0-9A-Z]{2})(\\s+)([0-9A-Z]{2})");
 	
 	int lineNum=0;
-	while(std::getline(file,line)){
+	
+	while(file.tellg()<endLine&&std::getline(file,line))
+	{
+	
+		if(regex_search(line,match,pattern))
+		{
+			add_map(match[7]);
+		}
+		else{
+			printf("%d:  line  not match!\n",threadID);
+		}
+		printf("%d:  lines processored...\n",threadID);
+	
+		printf("\033[A");
+		
+		printf("\033[K");
+		
+		//mtx.unlock();
+
+	
+	
+	}
+/*	while(std::getline(file,line)){
 		if(lineNum>=startLine&&lineNum<endLine){
 	//	mtx.lock();
 		if(regex_search(line,match,pattern))
@@ -70,9 +92,9 @@ void processFileBlock(const std::string& filename,int startLine,int endLine,int 
 		}
 		++lineNum;
 
-	}	
+	} 
 	
-	mtx.unlock();
+	mtx.unlock(); */	
 	file.close();
 
 }
@@ -123,7 +145,7 @@ int main(int argc,char* argv[])
 	for(int i=0;i<numThreads;i++){
 		startLine=i*linePercore;
 		endLine=(i==numThreads-1)?lineCount:(i+1)*linePercore;
-		threads.emplace_back(processFileBlock,filename,startLine,endLine,i,std::ref(mtx));
+		threads.emplace_back(processFileBlock,filename,startLine*175,endLine*175,i,std::ref(mtx));
 		std::cout<<"core"<<i<<" startline: "<<startLine<<" endline: "<<endLine<<std::endl;
 	}	
 
