@@ -70,9 +70,7 @@ void processFileBlock(const std::string& filename,long long startLine,long long 
 		printf("\033[K");
 		
 		//mtx.unlock();
-
-	
-	
+		
 	}
 /*	while(std::getline(file,line)){
 		if(lineNum>=startLine&&lineNum<endLine){
@@ -96,7 +94,7 @@ void processFileBlock(const std::string& filename,long long startLine,long long 
 		++lineNum;
 
 	} 
-	
+	//gteline()执行后，位于下一行开头。
 	mtx.unlock(); */	
 	file.close();
 
@@ -123,13 +121,16 @@ int main(int argc,char* argv[])
 	printf("seekg() %d\n",(int)file.tellg());
 	int lineCount=0;
 	std::string line1;
+	std::getline(file,line1);
+	int linesize=line1.size()+1;
+
 	while(std::getline(file,line1))
 	{
 		++lineCount;
-//	
+
 	}
 	std::cout<<"line number is: "<<lineCount<<std::endl;
-	printf("sizeof: %d,strlen\n",(int)line1.size());
+	printf("line size is: %d\n",linesize);
 	
 	std::streampos fileSize=file.tellg();
 	file.close();
@@ -150,8 +151,8 @@ int main(int argc,char* argv[])
 	for(int i=0;i<numThreads;i++){
 		startLine=i*linePercore;
 		endLine=(i==numThreads-1)?lineCount:(i+1)*linePercore;
-		threads.emplace_back(processFileBlock,filename,startLine*176,endLine*176,i,std::ref(mtx));
-		std::cout<<"core"<<i<<" startline: "<<startLine*176<<" endline: "<<endLine*176<<std::endl;
+		threads.emplace_back(processFileBlock,filename,startLine*linesize,endLine*linesize,i,std::ref(mtx));
+		std::cout<<"core"<<i<<" startline: "<<startLine*linesize<<" endline: "<<endLine*linesize<<std::endl;
 	}	
 
 	//wait thread return
@@ -163,7 +164,7 @@ int main(int argc,char* argv[])
 	int whole_count=0;
 	for(const auto& pair:fidmap){
 		whole_count+=pair.second;
-		std::cout<<"whole_count"<<whole_count<<std::endl;
+	//	std::cout<<"whole_count"<<whole_count<<std::endl;
 		
 	}
 	
