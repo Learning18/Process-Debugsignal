@@ -13,7 +13,7 @@ int main(int argc,char* argv[])
 {	
 	std::map<std::string,int> fidmap;
 	
-	std::ifstream file("data.txt");
+	std::ifstream file("./data.txt");
 	if(!file.is_open()){
 		std::cerr<<"Unable to open file."<<std::endl;
 		return 1;
@@ -39,18 +39,18 @@ int main(int argc,char* argv[])
 	while(std::getline(file,line))
 	{
 		std::smatch match;
-		std::regex pattern("([01]{1})(\\s+)([0-9A-Z]{2})(\\s+)([0-9A-Z]{2})");
+		std::regex pattern("([01]{1})(\\s+)([01]{1})(\\s+)([0-9A-Z]{2})(\\s+)([0-9A-Z]{2})");
 		if(regex_search(line,match,pattern))
 		{
 		//	std::cout<<match[3]<<"jjj"<<match[5]<<std::endl;
-			auto id=fidmap.find(match[5]);
+			auto id=fidmap.find(match[7]);
 			if(id !=fidmap.end()){
 	
-			fidmap[match[5]]=fidmap[match[5]]+1;
+			fidmap[match[7]]=fidmap[match[7]]+1;
 	
 			}else{
-			std::cout<<match[5]<<" found not in map"<<std::endl;
-			fidmap[match[5]]=1;
+			std::cout<<match[7]<<" found not in map"<<std::endl;
+			fidmap[match[7]]=1;
 			}
 		}
 		else{
@@ -72,7 +72,7 @@ int main(int argc,char* argv[])
 	}
 	for(const auto& pair:fidmap){
 //	std::cout<<pair.first<<": "<<pair.second<<" "<<pair.second/whole_count*100<<"%"<<std::endl;
-		printf("%d: %-5d\t%8.2lf\n",pair.first,pair.second,pair.second/whole_count);
+		printf("%s: %-5d\t%8.2f%%\n",pair.first,pair.second,pair.second*100.00/whole_count);
 	}
 	
 	file.close();

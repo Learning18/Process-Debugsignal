@@ -31,12 +31,11 @@ void add_map(std::string element){
 
 
 
-void processFileBlock(const std::string& filename,int startLine,int endLine,int threadID,std::mutex& mtx)
+void processFileBlock(const std::string& filename,long long startLine,long long endLine,int threadID,std::mutex& mtx)
 {
-//	mtx.lock();
+	mtx.lock();
 
 	std::ifstream file(filename);
-//	std::cout<<threadID<<std::endl;
 	if(!file.is_open())
 	{
 		std::cerr<<"Error opening file:"<<filename<<std::endl;
@@ -44,12 +43,15 @@ void processFileBlock(const std::string& filename,int startLine,int endLine,int 
 	}
 	//block start position
 	file.seekg(startLine);
+	std::cout<<threadID<<" "<<startLine<<" "<<endLine<<" "<<file.tellg()<<std::endl;
+
 	std::string line;
 	std::smatch match;
 	std::regex pattern("([01]{1})(\\s+)([01]{1})(\\s+)([0-9A-Z]{2})(\\s+)([0-9A-Z]{2})");
 	
 	int lineNum=0;
-	
+	mtx.unlock();
+
 	while(file.tellg()<endLine&&std::getline(file,line))
 	{
 	
@@ -58,9 +60,10 @@ void processFileBlock(const std::string& filename,int startLine,int endLine,int 
 			add_map(match[7]);
 		}
 		else{
-			printf("%d:  line  not match!\n",threadID);
+			printf("%d  %lld:line  not match!\n",threadID,(long long)(file.tellg()));
 		}
-		printf("%d:  lines processored...\n",threadID);
+	//	std::cout<<threadID<<" "<<file.tellg()<<std::endl;
+		printf("%d: %lld lines processored...\n",threadID,(long long)(file.tellg()));
 	
 		printf("\033[A");
 		
@@ -117,15 +120,17 @@ int main(int argc,char* argv[])
 		std::cerr<<"Unable to open file."<<std::endl;
 		return 1;
 	}
-
+	printf("seekg() %d\n",(int)file.tellg());
 	int lineCount=0;
 	std::string line1;
 	while(std::getline(file,line1))
 	{
 		++lineCount;
+//	
 	}
-	std::cout<<"linecoune"<<lineCount<<std::endl;
-
+	std::cout<<"line number is: "<<lineCount<<std::endl;
+	printf("sizeof: %d,strlen\n",(int)line1.size());
+	
 	std::streampos fileSize=file.tellg();
 	file.close();
 
@@ -140,13 +145,13 @@ int main(int argc,char* argv[])
 	std::vector<std::thread> threads;
 	std::mutex mtx;
 	int linePercore=lineCount/numThreads;
-	int startLine=0;
-	int endLine=0;
+	long long startLine=0;
+	long long endLine=0;
 	for(int i=0;i<numThreads;i++){
 		startLine=i*linePercore;
 		endLine=(i==numThreads-1)?lineCount:(i+1)*linePercore;
-		threads.emplace_back(processFileBlock,filename,startLine*175,endLine*175,i,std::ref(mtx));
-		std::cout<<"core"<<i<<" startline: "<<startLine<<" endline: "<<endLine<<std::endl;
+		threads.emplace_back(processFileBlock,filename,startLine*176,endLine*176,i,std::ref(mtx));
+		std::cout<<"core"<<i<<" startline: "<<startLine*176<<" endline: "<<endLine*176<<std::endl;
 	}	
 
 	//wait thread return
@@ -166,8 +171,7 @@ int main(int argc,char* argv[])
 	
 //	std::cout<<pair.first<<": "<<pair.second<<std::fixed<<std::setprecision(6)<<" "<<pair.second*100.00/33554432LL<<"%"<<std::endl;
 	std::cout<<pair.first<<": ";
-		printf("%5d%10.6f%%\n",pair.second,pair.second*100.00/whole_count);
-	
+		printf("%5d\t%10.6f%%\n",pair.second,pair.second*100.00/whole_count);	
 	}
 	
 

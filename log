@@ -163,3 +163,57 @@ whole_count28454317
 60:    31	  0.000109%
 64:    59	  0.000207%
 
+
+../core0_time2.txt
+linecoune22808640
+core0 startline: 0 endline: 3801440
+0
+core1 startline: 3801440 endline: 7602880
+core2 startline: 7602880 endline: 11404320
+core3 startline: 11404320 endline: 15205760
+core4 startline: 15205760 endline: 19007200
+core5 startline: 19007200 endline: 22808640
+0:  0 line  not match!
+3C found not in map
+44 found not in map
+40 found not in map
+1C found not in map
+60 found not in map
+58 found not in map
+5C found not in map
+34 found not in map
+64 found not in map
+24 found not in map
+1
+48 found not in map
+4C found not in map
+2
+3
+5
+4
+aaa
+whole_count6
+whole_count14
+whole_count22
+whole_count19891395
+whole_count21676092
+whole_count22808584
+whole_count22808587
+whole_count22808594
+whole_count22808595
+whole_count22808612
+whole_count22808614
+whole_count22808639
+1C:     6  0.000026%
+24:     8  0.000035%
+34:     8  0.000035%
+3C: 19891373 87.209820%
+40: 1784697  7.824654%
+44: 1132492  4.965189%
+48:     3  0.000013%
+4C:     7  0.000031%
+58:     1  0.000004%
+5C:    17  0.000075%
+60:     2  0.000009%
+64:    25  0.000110%
+
