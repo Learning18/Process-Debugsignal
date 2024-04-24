@@ -21,7 +21,6 @@ void add_map(std::string element){
 	if(id !=fidmap.end()){
 		fidmap[element]=fidmap[element]+1;
 	}else{
-		std::cout<< element<<" found not in map"<<std::endl;
 		fidmap[element]=1;
 	}
 
@@ -31,7 +30,7 @@ void add_map(std::string element){
 
 
 
-void processFileBlock(const std::string& filename,long long startLine,long long endLine,int threadID,std::mutex& mtx)
+void processFileBlock(const std::string& filename,long long startLine,long long endLine,int threadID,int lsize,std::mutex& mtx)
 {
 	mtx.lock();
 
@@ -42,61 +41,49 @@ void processFileBlock(const std::string& filename,long long startLine,long long 
 		return;
 	}
 	//block start position
-	file.seekg(startLine);
-	std::cout<<threadID<<" "<<startLine<<" "<<endLine<<" "<<file.tellg()<<std::endl;
+
 
 	std::string line;
 	std::smatch match;
 	std::regex pattern("([01]{1})(\\s+)([01]{1})(\\s+)([0-9A-Z]{2})(\\s+)([0-9A-Z]{2})");
 	
-	int lineNum=0;
+	std::streampos position;
+	for(long long i=0;i<startLine;i++)
+	{
+		if(!std::getline(file,line)){
+			std::cerr<<" fiel does not have enough lines. "<<std::endl;	
+			return ;
+		}
+		position += line.size()+1;		
+	}
+	file.seekg(position,std::ios::beg);
+	std::cout<<threadID<<" "<<startLine<<" "<<endLine<<" "<<file.tellg()<<std::endl;
+
+
+	long long lineNum=startLine;
 	mtx.unlock();
 
-	while(file.tellg()<endLine&&std::getline(file,line))
+	while(startLine<endLine&&std::getline(file,line))
 	{
-	
 		if(regex_search(line,match,pattern))
 		{
 			add_map(match[7]);
 		}
 		else{
-			printf("%d  %lld:line  not match!\n",threadID,(long long)(file.tellg()));
+			printf("%d  %lld:line not match!\n",threadID,(long long)(file.tellg()));
 		}
 	//	std::cout<<threadID<<" "<<file.tellg()<<std::endl;
-		printf("%d: %lld lines processored...\n",threadID,(long long)(file.tellg()));
+	//	printf("%d: %lld lines processored...\n",threadID,(long long)(file.tellg()));
 	
-		printf("\033[A");
+	//	printf("\033[A");
 		
-		printf("\033[K");
+	//	printf("\033[K");
 		
-		//mtx.unlock();
-		
+		++startLine;	
 	}
-/*	while(std::getline(file,line)){
-		if(lineNum>=startLine&&lineNum<endLine){
-	//	mtx.lock();
-		if(regex_search(line,match,pattern))
-		{
-			add_map(match[7]);
-		}
-		else{
-			printf("%d:  %lld line  not match!\n",threadID,line_number);
-		}
-		printf("%d:  %lld lines processored...\n",threadID,line_number++);
-	
-		printf("\033[A");
-		
-		printf("\033[K");
-		
-		//mtx.unlock();
-
-		}
-		++lineNum;
-
-	} 
 	//gteline()执行后，位于下一行开头。
-	mtx.unlock(); */	
-	file.close();
+//	mtx.unlock(); 
+	//file.close();
 
 }
 
@@ -118,12 +105,14 @@ int main(int argc,char* argv[])
 		std::cerr<<"Unable to open file."<<std::endl;
 		return 1;
 	}
-	printf("seekg() %d\n",(int)file.tellg());
+//	printf("seekg() %d\n",(int)file.tellg());
 	int lineCount=0;
 	std::string line1;
 	std::getline(file,line1);
 	int linesize=line1.size()+1;
+	printf("tellg() %d\n",(int)file.tellg());
 
+	file.seekg(0L);
 	while(std::getline(file,line1))
 	{
 		++lineCount;
@@ -151,8 +140,8 @@ int main(int argc,char* argv[])
 	for(int i=0;i<numThreads;i++){
 		startLine=i*linePercore;
 		endLine=(i==numThreads-1)?lineCount:(i+1)*linePercore;
-		threads.emplace_back(processFileBlock,filename,startLine*linesize,endLine*linesize,i,std::ref(mtx));
-		std::cout<<"core"<<i<<" startline: "<<startLine*linesize<<" endline: "<<endLine*linesize<<std::endl;
+		threads.emplace_back(processFileBlock,filename,startLine,endLine,i,linesize,std::ref(mtx));
+		std::cout<<"core"<<i<<" startline: "<<startLine<<" endline: "<<endLine<<std::endl;
 	}	
 
 	//wait thread return
@@ -160,7 +149,7 @@ int main(int argc,char* argv[])
 		thread.join();
 	}
 	std::cout<<"aaa"<<std::endl;
-
+	file.close();
 	int whole_count=0;
 	for(const auto& pair:fidmap){
 		whole_count+=pair.second;

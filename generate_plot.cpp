@@ -13,7 +13,7 @@ int main(int argc,char* argv[])
 {	
 	std::map<std::string,int> fidmap;
 	
-	std::ifstream file("./data.txt");
+	std::ifstream file("../core0_time2.txt");
 	if(!file.is_open()){
 		std::cerr<<"Unable to open file."<<std::endl;
 		return 1;
@@ -64,6 +64,7 @@ int main(int argc,char* argv[])
 		printf("\033[K");
 	}
 	
+	printf("%lld lines processored...\n",line_number);
 
 	
 	int whole_count=0;

@@ -217,3 +217,301 @@ whole_count22808639
 60:     2  0.000009%
 64:    25  0.000110%
 
+
+
+../core2_time1.txt
+seekg() 0
+line number is: 28750155
+line size is: 179
+core0 startline: 0 endline: 857712868
+core1 startline: 857712868 endline: 1715425736
+core2 startline: 1715425736 endline: 2573138604
+0 0 857712868 0
+core3 startline: 2573138604 endline: 3430851472
+core4 startline: 3430851472 endline: 4288564340
+core5 startline: 4288564340 endline: 5146277745
+1 857712868 1715425736 857712868
+0  179:line  not match!
+40 found not in map
+2 1715425736 2573138604 1715425736
+3 2573138604 3430851472 2573138604
+3C found not in map
+4 3430851472 4288564340 3430851472
+5 4288564340 5146277745 4288564340
+7C found not in map
+08 found not in map
+2: 1723248394 lines processored...
+1C found not in map
+44 found not in map
+46 found not in map
+4: 3451216302 lines processored...
+00 found not in map
+2: 1763654422 lines processored...
+0C found not in map
+04 found not in map
+3: 2912307804 lines processored...
+47 found not in map
+64 found not in map
+76 found not in map
+4: 3892938898 lines processored...
+66 found not in map
+06 found not in map
+aaa
+00:    59	  0.000205%
+04:     5	  0.000017%
+06:     60075 li  0.000021%ored...
+08:    56	  0.000195%
+0C:    22608 lin  0.000077%red....
+0E:     4	  0.000014%
+1C:    55	  0.000191%
+3C: 23889441	 83.093263%
+40: 3670627	 12.767330%
+42:    13	  0.000045%
+44: 847101	  2.946422%
+46: 305834	  1.063765%
+47: 36655	  0.127495%
+60:    43	  0.000150%
+64:     6	  0.000021%
+66:    12	  0.000042%
+70:     7	  0.000024%
+74:   105	  0.000365%
+76:    11	  0.000038%
+7C:    92	  0.000320%
+
+
+../core2_time2.txt
+seekg() 0
+line number is: 24097671
+line size is: 188
+core0 startline: 0 endline: 755060264
+0 0 755060264 0
+core1 startline: 755060264 endline: 1510120528
+core2 startline: 1510120528 endline: 2265180792
+core3 startline: 2265180792 endline: 3020241056
+core4 startline: 3020241056 endline: 3775301320
+core5 startline: 3775301320 endline: 4530362148
+2 1510120528 2265180792 0  188:line  not match!
+1510120528
+3C found not in map
+1 755060264 1510120528 755060264
+2265180792 3020241056 2265180792
+4 3020241056 3775301320 3020241056
+3775301320 4530362148 3775301320
+60 found not in map
+40 found not in map
+44 found not in map
+70 found not in map
+5: 3809928288 lines processored...
+7C found not in map
+74 found not in map
+64 found not in map
+0C found not in map
+00 found not in map
+46 found not in map
+1C found not in map
+76 found not in map
+04 found not in map
+aaa
+00:     1	  0.000004%
+04:     11620 li  0.000004%ored...
+08:    11	  0.000046%
+0C:     5	  0.000021%
+1C:     6	  0.000025%
+3C: 21624902	 89.738560%
+40: 1990789	  8.261334%
+44: 378348	  1.570061%
+46: 103569	  0.429788%
+60:     5	  0.000021%
+64:     5	  0.000021%
+70:     3	  0.000012%
+74:    13	  0.000054%
+76:     1	  0.000004%
+7C:    11	  0.000046%
+
+
+../core7_time1.txt
+seekg() 0
+line number is: 28587881
+line size is: 157
+core0 startline: 0 endline: 748049422
+0 0 748049422 0
+core1 startline: 748049422 endline: 1496098844
+core2 startline: 1496098844 endline: 2244148266
+core3 startline: 2244148266 endline: 2992197688
+core4 startline: 2992197688 endline: 3740247110
+core5 startline: 3740247110 endline: 4488297317
+1 748049422 1496098844 748049422
+2 1496098844 2244148266 1496098844
+3C found not in map
+4 2992197688 3740247110 2992197688
+3 2244148266 2992197688 2244148266
+5 3740247110 4488297317 3740247110
+44 found not in map
+0  157:line  not match!
+1: 748061982 lines processored...
+34 found not in map
+4C found not in map
+64 found not in map
+5C found not in map
+24 found not in map
+7C found not in map
+20 found not in map
+48 found not in map
+60 found not in map
+58 found not in map
+aaa
+20:    13	  0.000045%
+24:    26	  0.000091%
+34:    25	  0.000087%
+3C: 221152027 li 77.358664%ored...
+40: 471695123 li 16.499828%ored...
+44: 1755537	  6.140844%
+48:    15	  0.000052%
+4C:    10	  0.000035%
+58:     8	  0.000028%
+5C:    52	  0.000182%
+60:    10	  0.000035%
+64:     6	  0.000021%
+7C:    25	  0.000087%
+
+
+
+../core7_time2.txt
+seekg() 0
+line number is: 26233098
+line size is: 160
+core0 startline: 0 endline: 699549280
+core1 startline: 699549280 endline: 1399098560
+0 0 699549280 0core2
+ startline: 1399098560 endline: 2098647840
+core3 startline: 2098647840 endline: 2798197120
+core4 startline: 2798197120 endline: 3497746400
+core5 startline: 3497746400 endline: 4197295680
+1 699549280 1399098560 699549280
+0  160:line  not match!
+3C found not in map
+2 1399098560 2098647840 1399098560
+4 2798197120 3497746400 2798197120
+3 2098647840 2798197120 2098647840
+5 3497746400 4197295680 3497746400
+34 found not in map
+44 found not in map
+40 found not in map
+58 found not in map
+60 found not in map
+5C found not in map
+4C found not in map
+7C found not in map
+24 found not in map
+20 found not in map
+48 found not in map
+64 found not in map
+aaa
+20:     7	  0.000027%
+24:    33	  0.000126%
+34:    34	  0.000130%
+3C: 20042420	 76.401273%
+40: 4219070	 16.083004%
+44: 1971396	  7.514919%
+48:    11	  0.000042%
+4C:    17	  0.000065%
+58:     9	  0.000034%
+5C:    53	  0.000202%
+60:     6	  0.000023%
+64:    13	  0.000050%
+7C:    28	  0.000107%
+
+
+../core3_time2.txt
+tellg() 166
+line number is: 20630994
+line size is: 166
+core0 startline: 0 endline: 3438499
+core1 startline: 3438499 endline: 6876998
+core2 startline: 6876998 endline: 10315497
+core3 startline: 10315497 endline: 13753996
+core4 startline: 13753996 endline: 17192495
+core5 startline: 17192495 endline: 20630994
+0 0 3438499 0
+0  166:line  not match!
+1 3438499 6876998 570790834
+2 6876998 10315497 1141581668
+3 10315497 13753996 1712372502
+4 13753996 17192495 2283163336
+5 17192495 20630994 2853954170
+aaa
+00:    17	  0.000082%
+04:     7	  0.000034%
+06:     2	  0.000010%
+08:     9	  0.000044%
+0C:     4	  0.000019%
+10: 26567	  0.128772%
+28:    13	  0.000063%
+2C:     9	  0.000044%
+3C: 18158086	 88.013631%
+40: 2032897	  9.853607%
+42:    17	  0.000082%
+44: 265773	  1.288222%
+46: 147515	  0.715016%
+54:    20	  0.000097%
+56:     3	  0.000015%
+74:    19	  0.000092%
+7C:    35	  0.000170%
+
+../core3_time1.txt
+seekg() 0
+line number is: 33554432
+line size is: 157
+core0 startline: 0 endline: 878007585
+core1 startline: 878007585 endline: 1756015170
+core2 startline: 1756015170 endline: 2634022755
+0 0 878007585 0
+core3 startline: 2634022755 endline: 3512030340
+core4 startline: 3512030340 endline: 4390037925
+core5 startline: 4390037925 endline: 5268045824
+1 878007585 1756015170 878007585
+0  157:line  not match!
+3C found not in map
+2 1756015170 2634022755 1756015170
+3 2634022755 3512030340 2634022755
+4 3512030340 4390037925 3512030340
+5 4390037925 5268045824 4390037925
+46 found not in map
+40 found not in map
+08 found not in map
+44 found not in map
+28 found not in map
+7C found not in map
+42 found not in map
+0C found not in map
+2C found not in map
+54 found not in map
+00 found not in map
+04 found not in map
+74 found not in map
+56 found not in map
+0E found not in map
+50 found not in map
+06 found not in map
+76 found not in map
+aaa
+00:    25	  0.000075%
+04:    44	  0.000131%
+06:     3	  0.000009%
+08:    11	  0.000033%
+0C:    23	  0.000069%
+0E:     3	  0.000009%
+28:    11	  0.000033%
+2C:    38	  0.000113%
+3C: 27677360	 82.484963%
+40: 4420856	 13.175178%
+42:    80	  0.000238%
+44: 1013025	  3.019050%
+46: 442748	  1.319492%
+50:     2	  0.000006%
+54:    52	  0.000155%
+56:     7	  0.000021%
+74:    40	  0.000119%
+76:     2	  0.000006%
+7C:   101	  0.000301%
+
