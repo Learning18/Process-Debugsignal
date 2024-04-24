@@ -1,0 +1,10 @@
+ Timestamp	SBPMU.DPSLPVR  	SBPMU.SLPO_  	SBPMU.STPCLKO_  	SBPMU.CPUSTPO_  	SBPMU.NAP  	SBPMU.THRMTRIPI_  	SBPMU.CPU2SB_PBEB  	vkActCVID_N[7:0]  	vkActRatio_N[7:0]  	Sample   
+      0 ps	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        0
+ 28.750 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        1
+  1.250 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        2
+ 30.000 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        3
+ 90.000 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        4
+ 30.000 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        5
+ 30.000 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        6
+ 30.000 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        7
+  1.250 ns	0              	1            	1               	1               	1          	1                 	0                  	72                	3C                 	        8
